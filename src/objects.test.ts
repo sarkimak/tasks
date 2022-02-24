@@ -253,7 +253,8 @@ What shape can you make with one line?
             published: true
         });
     });
-
+    SHAPE_QUESTION.options.splice(SHAPE_QUESTION.options.length - 1, 1);
+    COLOR_QUESTION.options.splice(COLOR_QUESTION.options.length - 1, 1);
     ///////////////////////////////////
     // mergeQuestion
     test("Testing the mergeQuestion function", () => {
