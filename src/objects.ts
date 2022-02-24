@@ -105,8 +105,9 @@ export function renameQuestion(question: Question, newName: string): Question {
  */
 export function publishQuestion(question: Question): Question {
     const newQuestion = { ...question };
-    const p = question.
-    return question;
+    const p = question.published;
+    newQuestion.published = !p;
+    return newQuestion;
 }
 
 /**
