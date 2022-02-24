@@ -77,15 +77,15 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    let o;
-    if (question.type === "multiple_choice_question") {
+    let output;
+    if (question.type == "multiple_choice_question") {
         const choices = question.options.join("\n- ");
-        o = "# " + question.name + "\n" + question.body + "\n " + choices;
-        o = o.substring(0, o.length);
+        output = "# " + question.name + "\n" + question.body + "\n- " + choices;
+        output = output.substring(0, output.length);
     } else {
-        o = "# " + question.name + "\n" + question.body;
+        output = "# " + question.name + "\n" + question.body;
     }
-    return o;
+    return output;
 }
 
 /**
