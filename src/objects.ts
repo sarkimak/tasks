@@ -93,7 +93,9 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const newQuestion = { ...question };
+    newQuestion.name = newName;
+    return newQuestion;
 }
 
 /**
@@ -102,6 +104,8 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+    const newQuestion = { ...question };
+    const p = question.
     return question;
 }
 
