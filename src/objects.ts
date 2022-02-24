@@ -81,11 +81,11 @@ export function toMarkdown(question: Question): string {
     if (question.type === "multiple_choice_question") {
         const choices = question.options.join("\n- ");
         o = "# " + question.name + "\n" + question.body + "\n " + choices;
-        0 = o.substring(0, o.length);
+        o = o.substring(0, o.length);
     } else {
-        o = "# " + question.name + question.body;
+        o = "# " + question.name + "\n" + question.body;
     }
-    }
+    return o;
 }
 
 /**
