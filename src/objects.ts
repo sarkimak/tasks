@@ -83,6 +83,8 @@ export function toMarkdown(question: Question): string {
             "# " +
             question.name +
             "\n" +
+            question.body +
+            "\n- " +
             question.options.toString().replace(",", "\n- ")
         );
     } else {
