@@ -1,3 +1,4 @@
+import { urlToHttpOptions } from "url";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
@@ -43,9 +44,11 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    if (question.type == "short_answer_question") return true;
-    else if (question.options.includes(answer)) return true;
-    else return false;
+    return (
+        (question.type === "multiple_choice_question" &&
+            question.options.includes(answer)) ||
+        question.type === "short_answer_question"
+    );
 }
 
 /**
@@ -76,15 +79,15 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    let output;
-    if (question.type == "multiple_choice_question") {
-        const choices = question.options.join("\n- ");
-        output = "# " + question.name + "\n" + question.body + "\n- " + choices;
-        output = output.substring(0, output.length);
-    } else {
-        output = "# " + question.name + "\n" + question.body;
+    let o = "# " + question.name + "\n" + question.body;
+    if (question.type === "multiple_choice_question") {
+        o = o + "\n- ";
+        const options = question.options.reduce(
+            (prev: string, curr: string): string => prev + "\n- " + curr
+        );
+        o = o + options;
     }
-    return output;
+    return o;
 }
 
 /**
@@ -133,9 +136,8 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    const newQuestion = { ...question };
-    newQuestion.options.push(newOption);
-    return question;
+    const newOptions = [...question.options, newOption];
+    return { ...question, options: newOptions };
 }
 
 /**
@@ -152,10 +154,11 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    const newQuestion = { ...contentQuestion };
-    newQuestion.id = id;
-    newQuestion.name = name;
-    newQuestion.points = points;
-    newQuestion.published = false;
-    return newQuestion;
+    return {
+        ...contentQuestion,
+        points: points,
+        published: false,
+        id: id,
+        name: name
+    };
 }
