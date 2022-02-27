@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import bean from "./assets/bailey.jpeg";
 
 function App(): JSX.Element {
     return (
@@ -35,10 +36,7 @@ function App(): JSX.Element {
                         </div>
                     </Col>
                     <Col>
-                        <img
-                            src="\\Users/sarkimak//bailey.png"
-                            alt="A picture of Bailey in snow."
-                        />
+                        <img src={bean} alt="A picture of Bailey in snow." />
                         <div
                             style={{
                                 border: "1px solid red",
