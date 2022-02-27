@@ -153,7 +153,12 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    return questions.map((q: Question): Question => {
+        if (q.id === targetId) {
+            return { ...q, name: newName };
+        }
+        return { ...q };
+    });
 }
 
 /***
