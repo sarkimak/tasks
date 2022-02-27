@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -55,14 +56,14 @@ export function getNames(questions: Question[]): string[] {
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    return questions.reduce((n: number, q: Question) => n + q.points, 0);
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    return sumPoints(questions.filter((q: Question): boolean => q.published));
 }
 
 /***
@@ -83,7 +84,12 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    return questions.reduce(
+        (a: string, q: Question): string =>
+            (a +=
+                "\n${q.id},${q.name},${q.options.length},${q.points},${q.published}"),
+        "id, name, options, points, published"
+    );
 }
 
 /**
@@ -92,7 +98,15 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    return questions.map(
+        (q: Question): Answer =>
+            <Answer>{
+                questionId: q.id,
+                text: "",
+                submitted: false,
+                correct: false
+            }
+    );
 }
 
 /***
@@ -100,7 +114,9 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    return questions.map(
+        (q: Question): Question => <Question>{ ...q, published: true }
+    );
 }
 
 /***
@@ -108,7 +124,10 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    return (
+        questions.length === 0 ||
+        questions.every((q: Question): boolean => q.type === questions[0].type)
+    );
 }
 
 /***
@@ -122,7 +141,7 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    return [...questions, makeBlankQuestion(id, name, type)];
 }
 
 /***
