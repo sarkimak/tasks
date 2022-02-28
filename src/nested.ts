@@ -203,9 +203,9 @@ export function editOption(
     newOption: string
 ) {
     return questions.map((q: Question): Question => {
-        if (q.id === targetId){
-            if(targetOptionIndex === -1) {
-                return { ...q, options: [...q.options, newOption] }
+        if (q.id === targetId) {
+            if (targetOptionIndex === -1) {
+                return { ...q, options: [...q.options, newOption] };
             } else {
                 const newArray = [...q.options];
                 newArray.splice(targetOptionIndex, 1, newOption);
@@ -213,11 +213,12 @@ export function editOption(
                     ...q,
                     options: newArray
                 };
+            }
+        } else {
+            return { ...q };
         }
-    } else {
-        return { ...q};
-    }
-});
+    });
+}
 
 /***
  * Consumes an array of questions, and produces a new array based on the original array.
@@ -230,5 +231,8 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    const i = questions.findIndex
+    const i = questions.findIndex((q: Question): boolean => q.id === targetId);
+    const duplicate = [...questions];
+    duplicate.splice(i + 1, 0, duplicateQuestion(newId, questions[i]));
+    return duplicate;
 }
