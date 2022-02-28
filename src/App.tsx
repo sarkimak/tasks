@@ -36,8 +36,8 @@ function App(): JSX.Element {
                     </Col>
                     <Col>
                         <img
-                            src="file:///Users/sarahk415/Desktop/tasks/image/bailey.png"
-                            alt="A picture of Bailey in snow."
+                            src="https://welovedoodles.com/wp-content/uploads/2021/03/Golden-Retriever-In-Virginia-225x300.jpg"
+                            alt="A picture of Bailey."
                         />
                         <div
                             style={{
