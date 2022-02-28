@@ -36,7 +36,10 @@ function App(): JSX.Element {
                         </div>
                     </Col>
                     <Col>
-                        <img src={bean} alt="A picture of Bailey in snow." />
+                        <img
+                            src="https://www.wallpaperflare.com/static/268/135/752/saluki-dogs-face-wind-wallpaper-preview.jpg"
+                            alt="A picture of Bailey in snow."
+                        />
                         <div
                             style={{
                                 border: "1px solid red",
