@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
-import bean from "./assets/bailey.jpeg";
 
 function App(): JSX.Element {
     return (
@@ -37,8 +36,8 @@ function App(): JSX.Element {
                     </Col>
                     <Col>
                         <img
-                            src="https://www.wallpaperflare.com/static/268/135/752/saluki-dogs-face-wind-wallpaper-preview.jpg"
-                            alt="A picture of Bailey in snow."
+                            src="https://welovedoodles.com/wp-content/uploads/2021/03/Golden-Retriever-In-Virginia-225x300.jpg"
+                            alt="A picture of Bailey."
                         />
                         <div
                             style={{
