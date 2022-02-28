@@ -173,7 +173,17 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    return questions.map((q: Question): Question => {
+        if (q.id === targetId) {
+            if (newQuestionType === "short_answer_question") {
+                return { ...q, options: [], type: newQuestionType };
+            } else {
+                return { ...q, type: newQuestionType };
+            }
+        } else {
+            return { ...q };
+        }
+    });
 }
 
 /**
@@ -192,8 +202,22 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ) {
-    return [];
-}
+    return questions.map((q: Question): Question => {
+        if (q.id === targetId){
+            if(targetOptionIndex === -1) {
+                return { ...q, options: [...q.options, newOption] }
+            } else {
+                const newArray = [...q.options];
+                newArray.splice(targetOptionIndex, 1, newOption);
+                return {
+                    ...q,
+                    options: newArray
+                };
+        }
+    } else {
+        return { ...q};
+    }
+});
 
 /***
  * Consumes an array of questions, and produces a new array based on the original array.
@@ -206,5 +230,5 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const i = questions.findIndex
 }
