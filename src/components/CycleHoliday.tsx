@@ -2,5 +2,21 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): JSX.Element {
-    return <div>Cycle Holiday</div>;
+    const [att, setAtt] = useState<number>(4);
+    const [prog, setProg] = useState<boolean>(false);
+
+    return (
+        <div>
+            <p>{att}</p>
+            <Button
+                onClick={() => {
+                    setAtt((prevAtt) => prevAtt - 1);
+                    setProg(true);
+                }}
+                disabled={prog || att <= 0}
+            >
+                Mulligan
+            </Button>
+        </div>
+    );
 }
