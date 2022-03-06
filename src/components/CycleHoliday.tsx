@@ -15,6 +15,14 @@ export function CycleHoliday(): JSX.Element {
                 }}
                 disabled={prog || att <= 0}
             >
+                Start Quiz
+                </Button>
+                <Button onClick={() => {setProg(true)}>
+                Stop Quiz
+                </Button>
+                <Button onClick={() => {setAtt(prevAtt) => prevAtt + 1 }
+                disabled=(prog)
+                >
                 Mulligan
             </Button>
         </div>
