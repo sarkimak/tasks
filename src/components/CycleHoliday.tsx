@@ -10,17 +10,17 @@ export function CycleHoliday(): JSX.Element {
             <p>{att}</p>
             <Button
                 onClick={() => {
-                    setAtt((prevAtt) => prevAtt - 1);
+                    setAtt((prevAttempts) => prevAtt - 1);
                     setProg(true);
                 }}
                 disabled={prog || att <= 0}
             >
                 Start Quiz
                 </Button>
-                <Button onClick={() => {setProg(true)}>
+                <Button onClick={() => {setProg(true)} disabled={!prog}}>
                 Stop Quiz
                 </Button>
-                <Button onClick={() => {setAtt(prevAtt) => prevAtt + 1 }
+                <Button onClick={() => {setAtt(prevAttempts) => prevAtt + 1 }
                 disabled=(prog)
                 >
                 Mulligan
@@ -28,3 +28,4 @@ export function CycleHoliday(): JSX.Element {
         </div>
     );
 }
+
