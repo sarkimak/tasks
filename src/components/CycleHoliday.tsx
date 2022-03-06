@@ -2,30 +2,35 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): JSX.Element {
-    const [att, setAtt] = useState<number>(4);
-    const [prog, setProg] = useState<boolean>(false);
+    // Chron: Fourth of July 🇺🇸, My Birthday 🌴, Halloween 🎃, Thanksgiving 🍂, Christmas 🎄
+    // Alpha: Christmas 🎄, Fourth of July 🇺🇸, Halloween 🎃, My Birthday 🌴, Thanksgiving 🍂
+    const [currH, setH] = useState<string>("🇺🇸");
 
+    const chron: Record<string, string> = {
+        "🇺🇸": "🌴",
+        "🌴": "🎃",
+        "🎃": "🍂",
+        "🍂": "🎄",
+        "🎄": "🇺🇸"
+    };
+    const alpha: Record<string, string> = {
+        "🎄": "🇺🇸",
+        "🇺🇸": "🎃",
+        "🎃": "🌴",
+        "🌴": "🍂",
+        "🍂": "🎄"
+    };
     return (
         <div>
-            <p>{att}</p>
-            <Button
-                onClick={() => {
-                    setAtt((prevAttempts) => prevAtt - 1);
-                    setProg(true);
-                }}
-                disabled={prog || att <= 0}
-            >
-                Start Quiz
+            <p>Holiday: {currH}</p>
+            <div>
+                <Button onClick={() => setH((prevH) => alpha[prevH])}>
+                    Advance by Alphabet
                 </Button>
-                <Button onClick={() => {setProg(true)} disabled={!prog}}>
-                Stop Quiz
+                <Button onClick={() => setH((prevH) => chron[prevH])}>
+                    Advance by Year
                 </Button>
-                <Button onClick={() => {setAtt(prevAttempts) => prevAtt + 1 }
-                disabled=(prog)
-                >
-                Mulligan
-            </Button>
+            </div>
         </div>
     );
 }
-
