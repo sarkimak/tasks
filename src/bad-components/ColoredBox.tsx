@@ -26,7 +26,7 @@ function ColorPreview({ colorIndex }: { colorIndex: number }): JSX.Element {
 
 export function ColoredBox(): JSX.Element {
     const [colorIndex, setColorIndex] = useState<number>(DEFAULT_COLOR_INDEX);
-    const switches = () => setColorIndex((colorIndex + 1) % COLORS.length);
+    const switches = () => setColorIndex((1 + colorIndex) % COLORS.length);
     return (
         <div>
             <h3>Colored Box</h3>
