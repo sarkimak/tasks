@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
+type ChangeEvent = React.ChangeEvent<
+    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
+>;
+
 export function CheckAnswer({
     expectedAnswer
 }: {
     expectedAnswer: string;
 }): JSX.Element {
     const [ans, setAns] = useState<string>("");
+
     const updateAns = (e: ChangeEvent) => {
         setAns(e.target.value);
     };
+
     return (
         <div>
             <h3>Check Answer</h3>
