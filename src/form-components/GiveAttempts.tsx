@@ -17,7 +17,7 @@ export function GiveAttempts(): JSX.Element {
                     type="number"
                     value={attemptsReq}
                     onChange={(event: ChangeEvent) =>
-                        setAttemptsReq(parseInt(event.target.value) || 0)
+                        setAttemptsReq(parseInt(event.target.value))
                     }
                 />
             </Form.Group>
