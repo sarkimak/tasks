@@ -1,0 +1,96 @@
+{
+    "BLANK_QUESTIONS": [
+        {
+            "id": 1,
+            "name": "Question 1",
+            "body": "",
+            "type": "multiple_choice_question",
+            "options": [],
+            "expected": "",
+            "points": 1,
+            "published": false
+        },
+        {
+            "id": 2,
+            "name": "Question 2",
+            "body": "",
+            "type": "short_answer_question",
+            "options": [],
+            "expected": "",
+            "points": 1,
+            "published": false
+        }
+    ],
+    "ACADEMIC_QUESTIONS": [
+        {
+            "id": 1,
+            "name": "Addition",
+            "body": "What is 2+2?",
+            "type": "short_answer_question",
+            "options": [],
+            "expected": "4",
+            "points": 1,
+            "published": true
+        },
+        {
+            "id": 2,
+            "name": "Letters",
+            "body": "What is the first letter of the English alphabet?",
+            "type": "short_answer_question",
+            "options": [],
+            "expected": "A",
+            "points": 1,
+            "published": false
+        },
+        {
+            "id": 5,
+            "name": "Colors",
+            "body": "Which of these is a color?",
+            "type": "multiple_choice_question",
+            "options": ["green", "pear", "tree"],
+            "expected": "green",
+            "points": 1,
+            "published": true
+        }
+    ],
+    "TRIVIA_QUESTIONS": [
+        {
+            "id": 1,
+            "name": "Miracle",
+            "body": "What year was the Miracle on Ice",
+            "type": "multiple_choice_question",
+            "options": ["1980", "1975", "1990"],
+            "expected": "1980",
+            "points": 7,
+            "published": false
+        },
+        {
+            "id": 2,
+            "name": "Motto",
+            "body": "What is the University of Delaware's motto?",
+            "type": "multiple_choice_question",
+            "options": [
+                "Knowledge is the light of the mind",
+                "Just U Do it",
+                "Nothing, what's the motto with you?"
+            ],
+            "expected": "Knowledge is the light of the mind",
+            "points": 3,
+            "published": false
+        },
+        {
+            "id": 3,
+            "name": "Goats",
+            "body": "How many goats are there usually on the Green?",
+            "type": "multiple_choice_question",
+            "options": [
+                "Zero, why would there be goats on the green?",
+                "18420",
+                "Two"
+            ],
+            "expected": "Two",
+            "points": 10,
+            "published": false
+        }
+    ]
+}
