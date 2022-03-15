@@ -1,4 +1,4 @@
 export interface Publish {
-    published: boolean;
+    pub: boolean;
     when: string | null;
 }
