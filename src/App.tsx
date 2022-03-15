@@ -8,11 +8,11 @@ function App(): JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
             </header>
+            <Quizzer></Quizzer>
+            <hr></hr>Sketch<hr></hr>
             <div className="sketch_img">
                 <img src={require("./sketch.png")} />
             </div>
-            <Quizzer></Quizzer>
-            <hr></hr>Sketch<hr></hr>
             <hr></hr>List of Completed Requirements<hr></hr>
         </div>
     );
