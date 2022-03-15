@@ -7,22 +7,26 @@
             {
                 "order": 1,
                 "body": "Who wrote The Great Gatsby?",
-                "points": 25
+                "points": 25,
+                "pub": true
             },
             {
                 "order": 2,
                 "body": "When was the Miracle on Ice?",
-                "points": 25
+                "points": 25,
+                "pub": true
             },
             {
                 "order": 3,
                 "body": "Who is the best Rookie on the Ducks?",
-                "points": 25
+                "points": 25,
+                "pub": true
             },
             {
                 "order": 4,
                 "body": "Which state has the best bagels?",
-                "points": 25
+                "points": 25,
+                "pub": true
             }
         ]
     }

@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Quizzer } from "./quizzer/Quizzer";
-//import quest from "./quizzer/data/quizquestions.json";
-//import { Quiz } from "./quizzer/interfaces/quizzes";
+import quest from "./quizzer/data/quizquestions.json";
+import { Quiz } from "./quizzer/interfaces/quizzes";
+import { QuizList } from "./quizzer/components/QuizList";
+import { ModalBody } from "react-bootstrap";
+
+const QUIZZES = quest.map(
+    (quizzes): Quiz => ({
+        ...quizzes
+    })
+);
 
 function App(): JSX.Element {
+    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
+
+    function editQuiz(id: string, newQuiz: Quiz) {
+        setQuizzes(
+            Quiz.map(
+                (quizzes: Quiz): Quiz => (quizzes.id === id ? newQuiz : quizzes)
+            )
+        );
+    }
+
+    function deleteQuiz(id: string) {
+        setQuizzes(
+            quizzes.filter((quizzes: Quiz): boolean => quizzes.id !== id)
+        );
+    }
+
     return (
         <div className="App">
-            <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
-            </header>
+            <header className="App-header">Quizzer</header>
             <Quizzer></Quizzer>
+            <div>
+                <QuizList
+                    quizzes={quizzes}
+                    editQuiz={editQuiz}
+                    deleteQuiz={deleteQuiz}
+                ></QuizList>
+            </div>
             <hr></hr>Sketch<hr></hr>
             <div className="sketch_img">
                 <img src={require("./sketch.png")} />
