@@ -9,7 +9,7 @@ export function QuizView({
     quiz,
     editQuiz
 }: {
-    quiz: quizzes;
+    quiz: Quiz;
     editQuiz: (id: string) => void;
 }): JSX.Element {
     const [editing, setEditing] = useState<boolean>(false);
