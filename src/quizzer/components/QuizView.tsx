@@ -3,16 +3,18 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { QuestionsList } from "./QuestionsList";
 import { Quiz } from "../interfaces/quizzes";
-//import { QuizEditor } from "./QuizEditor";
+import { QuizEditor } from "./QuizEditor";
 
 export function QuizView({
     quiz,
-    //editQuiz
+    deleteQuiz,
+    editQuiz
 }: {
     quiz: Quiz;
-    //editQuiz: (id: string) => void;
+    deleteQuiz: (id: string) => void;
+    editQuiz: (id: string, newMovie: Quiz) => void;
 }): JSX.Element {
-    /*const [editing, setEditing] = useState<boolean>(false);
+    const [editing, setEditing] = useState<boolean>(false);
 
     function changeEditing() {
         setEditing(!editing);
@@ -23,9 +25,9 @@ export function QuizView({
             changeEditing={changeEditing}
             quiz={quiz}
             editQuiz={editQuiz}
+            deleteQuiz={deleteQuiz}
         ></QuizEditor>
     ) : (
-        */
         <Container>
             <Row>
                 <Col>
