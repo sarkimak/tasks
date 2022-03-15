@@ -1,13 +1,8 @@
 import React from "react";
 import "./App.css";
-import quest from "./data/quizquestions.json";
 import { Quizzer } from "./quizzer/Quizzer";
-
-const QUIZZES = quest.map(
-    (quest): Quiz => ({
-        ...quiz
-    })
-);
+//import quest from "./quizzer/data/quizquestions.json";
+//import { Quiz } from "./quizzer/interfaces/quizzes";
 
 function App(): JSX.Element {
     return (

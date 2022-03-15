@@ -2,7 +2,7 @@ import { Question } from "./questions";
 
 export interface Quiz {
     title: string;
-    points: number;
+    points: string;
     description: string;
     questions: Question[];
 }
