@@ -36,4 +36,13 @@
     to {
         transform: rotate(360deg);
     }
+
+    img {
+        width: 100%;
+    }
+}
+    
+.sketch_img {
+        max-width: 50%;
+        margin: 30px auto;
 }
