@@ -1,8 +1,8 @@
-import { published } from "./published";
+import { Publish } from "./published";
 
-export interface questions {
+export interface Question {
     name: string;
     body: string;
     points: number;
-    published: published;
+    published: Publish;
 }

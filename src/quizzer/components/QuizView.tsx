@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { QuestionsList } from "./QuestionsList";
-import { quizzes } from "../interfaces/quizzes";
+import { Quiz } from "../interfaces/quizzes";
 import { QuizEditor } from "./QuizEditor";
 
 export function QuizView({

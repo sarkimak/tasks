@@ -1,8 +1,8 @@
-import { questions } from "./questions";
+import { Question } from "./questions";
 
-export interface quizzes {
+export interface Quiz {
     title: string;
     points: number;
     description: string;
-    questions: questions[];
+    questions: Question[];
 }
