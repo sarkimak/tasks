@@ -1,7 +1,7 @@
 import { Publish } from "./published";
 
 export interface Question {
-    name: string;
+    order: number;
     body: string;
     points: number;
     published: Publish;
