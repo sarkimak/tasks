@@ -4,15 +4,8 @@ import { Quizzer } from "./quizzer/Quizzer";
 import quest from "./quizzer/data/quizquestions.json";
 import { Quiz } from "./quizzer/interfaces/quizzes";
 import { QuizList } from "./quizzer/components/QuizList";
-import { ModalBody } from "react-bootstrap";
 
-const QUIZZES = quest.map(
-    (quizzes): Quiz => ({
-        ...quizzes
-    })
-);
-
-function App(): JSX.Element {
+/*function App(): JSX.Element {
     const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
 
     function editQuiz(id: string, newQuiz: Quiz) {
@@ -28,7 +21,7 @@ function App(): JSX.Element {
             quizzes.filter((quizzes: Quiz): boolean => quizzes.id !== id)
         );
     }
-
+*/
     return (
         <div className="App">
             <header className="App-header">Quizzer</header>
