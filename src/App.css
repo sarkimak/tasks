@@ -38,11 +38,11 @@
     }
 
     img {
-        width: 100%;
+        width: 2%;
     }
 }
     
 .sketch_img {
         max-width: 10%;
-        margin: 30px auto;
+        margin: 10px auto;
 }
