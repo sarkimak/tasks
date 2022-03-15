@@ -1,92 +1,30 @@
-{
-    "BLANK_QUESTIONS": [
-        {
-            "id": 1,
-            "name": "Question 1",
-            "body": "",
-            "type": "multiple_choice_question",
-            "options": [],
-            "expected": "",
-            "points": 1,
-            "published": false
-        },
-        {
-            "id": 2,
-            "name": "Question 2",
-            "body": "",
-            "type": "short_answer_question",
-            "options": [],
-            "expected": "",
-            "points": 1,
-            "published": false
-        }
-    ],
-    "ACADEMIC_QUESTIONS": [
-        {
-            "id": 1,
-            "name": "Addition",
-            "body": "What is 20*2?",
-            "type": "short_answer_question",
-            "options": [],
-            "expected": "40",
-            "points": 1,
-            "published": true
-        },
-        {
-            "id": 2,
-            "name": "Letters",
-            "body": "What is the first letter of the English alphabet?",
-            "type": "short_answer_question",
-            "options": [],
-            "expected": "A",
-            "points": 1,
-            "published": false
-        },
-        {
-            "id": 5,
-            "name": "Colors",
-            "body": "Which of these is a color?",
-            "type": "multiple_choice_question",
-            "options": ["green", "pear", "tree"],
-            "expected": "green",
-            "points": 1,
-            "published": true
-        }
-    ],
-    "TRIVIA_QUESTIONS": [
-        {
-            "id": 1,
-            "name": "Movies",
-            "body": "What year was the Miracle on Ice",
-            "type": "multiple_choice_question",
-            "options": ["1980", "1975", "1990"],
-            "expected": "1980",
-            "points": 7,
-            "published": false
-        },
-        {
-            "id": 2,
-            "name": "Authors",
-            "body": "Who is the author of The Great Gatsby",
-            "type": "short_answer_question",
-            "options": [],
-            "expected": "F. Scott Fitzgerald",
-            "points": 14,
-            "published": false
-        },
-        {
-            "id": 3,
-            "name": "Orchestral Scores",
-            "body": "Who wrote The Dark Knight orchestral score",
-            "type": "multiple_choice_question",
-            "options": [
-                "Craig Armstrong",
-                "Hans Zimmer",
-                "John Williams"
-            ],
-            "expected": "Hans Zimmer",
-            "points": 21,
-            "published": false
-        }
-    ]
-}
+[
+    {
+        "title": "Sarah's Favorites Trivia",
+        "points": 100,
+        "description": "Take a quiz and see how many of Sarah's favorite things you know!",
+        "question": [
+            {
+                "order": 1,
+                "body": "Who wrote The Great Gatsby?",
+                "points": 25
+            },
+            {
+                "order": 2,
+                "body": "When was the Miracle on Ice?",
+                "points": 25
+            },
+            {
+                "order": 3,
+                "body": "Who is the best Rookie on the Ducks?",
+                "points": 25
+            },
+            {
+                "order": 4,
+                "body": "Which state has the best bagels?",
+                "points": 25
+            }
+        ]
+    },
+
+]
