@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Quizzer } from "./quizzer/Quizzer";
+//import { Quizzer } from "./quizzer/Quizzer";
 import quest from "./quizzer/data/quizquestions.json";
 import { Quiz } from "./quizzer/interfaces/quizzes";
 import { QuizList } from "./quizzer/components/QuizList";
 
-/*function App(): JSX.Element {
-    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
+function App(): JSX.Element {
+/*    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
 
     function editQuiz(id: string, newQuiz: Quiz) {
         setQuizzes(
@@ -25,7 +25,6 @@ import { QuizList } from "./quizzer/components/QuizList";
     return (
         <div className="App">
             <header className="App-header">Quizzer</header>
-            <Quizzer></Quizzer>
             <div>
                 <QuizList
                     quizzes={quizzes}
