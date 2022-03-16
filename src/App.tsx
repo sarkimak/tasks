@@ -11,7 +11,7 @@ function App(): JSX.Element {
             </div>
             <hr></hr>List of Completed Requirements:<hr></hr>
             <ul>
-                <li>Application is Sketched: Y Tested: N</li>
+                <li>Application is Sketched: Y </li>
                 <li>Quizzes are Visible: Y Tested: N</li>
                 <li>Quizzes have Questions: Y Tested: N</li>
                 <li>Short Answer and Multiple Choice: Y Tested: N</li>
