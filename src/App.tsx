@@ -1,9 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-//import { Quizzer } from "./quizzer/Quizzer";
-import quest from "./quizzer/data/quizquestions.json";
-import { Quiz } from "./quizzer/interfaces/quizzes";
-import { QuizList } from "./quizzer/components/QuizList";
 
 function App(): JSX.Element {
 /*    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
