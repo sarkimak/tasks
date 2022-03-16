@@ -1,32 +1,62 @@
 [
     {
+        "id": "trivia1",
         "title": "Sarah's Favorites Trivia",
         "points": 100,
         "description": "Take a quiz and see how many of Sarah's favorite things you know!",
-        "question": [
+        "questions": [
             {
+                "id": "gatsby",
                 "order": 1,
                 "body": "Who wrote The Great Gatsby?",
-                "points": 25,
-                "pub": true
+                "points": 25
+            },
+            {
+                "id": "miracle",
+                "order": 2,
+                "body": "When was the Miracle on Ice?",
+                "points": 25
+            },
+            {
+                "id": "ducks",
+                "order": 3,
+                "body": "Who is the best Rookie on the Ducks?",
+                "points": 25
+            },
+            {
+                "id": "bagels",
+                "order": 4,
+                "body": "Which state has the best bagels?",
+                "points": 25
+            }
+        ]
+    },
+    {
+        "id": "brain1",
+        "title": "Brain Quiz",
+        "points": 4000,
+        "description": "Put your brain to the test with these riddles and quests!",
+        "questions": [
+            {
+                "id": "gatsby",
+                "order": 1,
+                "body": "Who wrote The Great Gatsby?",
+                "points": 25
             },
             {
                 "order": 2,
                 "body": "When was the Miracle on Ice?",
-                "points": 25,
-                "pub": true
+                "points": 1000
             },
             {
                 "order": 3,
                 "body": "Who is the best Rookie on the Ducks?",
-                "points": 25,
-                "pub": true
+                "points": 1000
             },
             {
                 "order": 4,
                 "body": "Which state has the best bagels?",
-                "points": 25,
-                "pub": true
+                "points": 1000
             }
         ]
     }
