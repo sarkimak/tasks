@@ -1,9 +1,10 @@
 import { Question } from "./questions";
 
 export interface Quiz {
-    id: string;
+    id: number;
     title: string;
     points: number;
     description: string;
+    maxQ: number;
     questions: Question[];
 }
