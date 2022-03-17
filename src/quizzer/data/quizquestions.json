@@ -49,7 +49,7 @@
         ]
     },
     {
-        "id": "1",
+        "id": 1,
         "title": "Brain Quiz",
         "points": 3000,
         "description": "Put your brain to the test with these riddles and quests!",
