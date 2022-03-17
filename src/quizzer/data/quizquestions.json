@@ -66,6 +66,7 @@
                 "published": true
             },
             {
+                "id": 1,
                 "name": "City",
                 "body": "What is the largest city in Missouri?",
                 "type": "short_answer_question",
@@ -75,6 +76,7 @@
                 "published": true
             },
             {
+                "id": 2,
                 "name": "Science",
                 "body": "What is the powerhouse of the cell?",
                 "type": "short_answer_question",
