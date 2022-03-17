@@ -51,30 +51,37 @@
     {
         "id": "1",
         "title": "Brain Quiz",
-        "points": 4000,
+        "points": 3000,
         "description": "Put your brain to the test with these riddles and quests!",
         "maxQ": 3,
         "questions": [
             {
-                "id": "gatsby",
-                "order": 1,
-                "body": "Who wrote The Great Gatsby?",
-                "points": 25
+                "id": 0,
+                "name": "Riddle",
+                "body": "What's black when you get it, red when you use it and white when you're done?",
+                "type": "multiple_choice_question",
+                "options": ["coal", "newspaper", "eraser"],
+                "expected": "coal",
+                "points": 1000,
+                "published": true
             },
             {
-                "order": 2,
-                "body": "When was the Miracle on Ice?",
-                "points": 1000
+                "name": "City",
+                "body": "What is the largest city in Missouri?",
+                "type": "short_answer_question",
+                "options": [],
+                "expected": "Kansas City",
+                "points": 1000,
+                "published": true
             },
             {
-                "order": 3,
-                "body": "Who is the best Rookie on the Ducks?",
-                "points": 1000
-            },
-            {
-                "order": 4,
-                "body": "Which state has the best bagels?",
-                "points": 1000
+                "name": "Science",
+                "body": "What is the powerhouse of the cell?",
+                "type": "short_answer_question",
+                "options": [],
+                "expected": "Mitochondria",
+                "points": 1000,
+                "published": true
             }
         ]
     }
