@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Quiz } from "../../interfaces/quiz";
 import { Question } from "../../interfaces/question";
 import { Button, Form } from "react-bootstrap";
-import { EditQuestions } from "./EditQuestions";
+//import { EditQuestions } from "./EditQuestions";
 
-function saveB({
+/*function saveB({
     mode,
     quizzes,
     setQuizzes,
@@ -18,8 +18,5 @@ function saveB({
     setCurrQ: (newQuizzes: Quiz[]) => void;
     newQuest: Question[];
     quizDetails: Quiz;
-}): JSX.Element {
-    function save(){
-        //body
-    }
-}
+});
+*/

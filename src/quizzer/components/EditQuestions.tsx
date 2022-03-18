@@ -14,29 +14,30 @@ const BLANK_QUESTION: Question = {
     published: false
 };
 
-export function EditQuestions({
+/*export function EditQuestions({
     questions,
     setQuestions,
-    quizDetails
+    quizDetails,
     setQuizDetails
 }: {
     questions: Question[];
     setQuestions: (newQuest: Question[]) => void;
-    quizDetails: Quiz,
-    setQuizDetails: ( newQuizDetails: Quiz) => void;
+    quizDetails: Quiz;
+    setQuizDetails: (newQuizDetails: Quiz) => void;
 }): JSX.Element {
     function deleteQuestion(id: number) {
-        setQuestions(questions.filter((question: Question): boolean => question.id !== id));
+        setQuestions(
+            questions.filter(
+                (question: Question): boolean => question.id !== id
+            )
+        );
     }
     function addQuestion(id: number) {
-        setQuestions([...questions, {...BLANK_QUESTION, id: id + 1}]);
+        setQuestions([...questions, { ...BLANK_QUESTION, id: id + 1 }]);
         setQuizDetails({
             ...quizDetails,
             maxQ: id + 1
         });
     }
-    
-return (
-
-)
 }
+*/
