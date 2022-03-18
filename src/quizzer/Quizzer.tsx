@@ -1,9 +1,9 @@
-/*import React, { useState } from "react";
-import { Quiz } from "../interfaces/quiz";
-import { Question, QuestionType } from "../interfaces/question";
-import quest from "./data/quizquestions.json";
+import React, { useState } from "react";
+//import { Quiz } from "../interfaces/quiz";
+//import { Question, QuestionType } from "../interfaces/question";
+//import quest from "./data/quizquestions.json";
 
-const QUIZZES: Quiz[] = quest.map(
+/*const QUIZZES: Quiz[] = quest.map(
     (quiz): Quiz => ({
         ...quiz,
         questions: quiz.questions.map(
@@ -23,9 +23,8 @@ const NEW_QUIZ: Quiz = {
     maxQ: 0,
     questions: []
 };
-
+*/
 export function Quizzer(): JSX.Element {
-    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
+    //const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
     return <h3>Quizzer</h3>;
 }
-*/
