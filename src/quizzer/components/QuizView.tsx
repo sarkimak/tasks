@@ -12,28 +12,28 @@ function QuizList({
     currQ: Quiz;
     setCurrQ: (newQuiz: Quiz) => void;
 }): JSX.Element {
-    function changeCurrQ(event: React.ChangeEvent<HTMLSelectElement>){
+    function changeCurrQ(event: React.ChangeEvent<HTMLSelectElement>) {
         const id = parseInt(event.target.value);
         console.log(id);
         console.log(quizzes[id]);
         setCurrQ(quizzes[id]);
     }
 
-return (
-    <div>
-        <Form.Group controlId="quizList">
-            <Form.Select value={currQ.id} onChange={changeCurrQ}>
-                {quizzes.map(
-                    (q: Quiz): JSX.Element => (
-                        <option key={q.id} value={q.id}>
-                            {q.title}
-                        </option>
-                    )
-                )}
-            </Form.Select>
-        </Form.Group>
-        <p>{currQ.points}</p>
-        <p>{currQ.description}</p>
+    return (
+        <div>
+            <Form.Group controlId="quizList">
+                <Form.Select value={currQ.id} onChange={changeCurrQ}>
+                    {quizzes.map(
+                        (q: Quiz): JSX.Element => (
+                            <option key={q.id} value={q.id}>
+                                {q.title}
+                            </option>
+                        )
+                    )}
+                </Form.Select>
+            </Form.Group>
+            <p>{currQ.points}</p>
+            <p>{currQ.description}</p>
         </div>
     );
 }
@@ -46,12 +46,9 @@ function StartQuizB({
     currQ: Quiz;
 }): JSX.Element {
     return (
-        <Button
-            disabled={isNaN(currQ.id)}
-            onClick={() => setMode("start")}
-        >
+        <Button disabled={isNaN(currQ.id)} onClick={() => setMode("start")}>
             Start Quiz
-            </Button>
+        </Button>
     );
 }
 
@@ -63,24 +60,21 @@ function EdittQuizB({
     currQ: Quiz;
 }): JSX.Element {
     return (
-        <Button
-            disabled={isNaN(currQ.id)}
-            onClick={() => setMode("edit")}
-        >
+        <Button disabled={isNaN(currQ.id)} onClick={() => setMode("edit")}>
             Edit Quiz
-            </Button>
+        </Button>
     );
 }
 
 function NewQuizB({
-    setMode,
+    setMode
 }: {
     setMode: (newMode: string) => void;
 }): JSX.Element {
     return <Button onClick={() => setMode("new")}>+ Add Quiz</Button>;
 }
 
-export function QuizView({
+/*export function QuizView({
     setMode,
     quizzes,
     currQ,
@@ -112,3 +106,4 @@ export function QuizView({
         </div>
     );
 }
+*/
