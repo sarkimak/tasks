@@ -1,4 +1,4 @@
-/*import { Question } from "./interfaces/question";
+/*
 import {
     makeBlankQuestion,
     isCorrect,
