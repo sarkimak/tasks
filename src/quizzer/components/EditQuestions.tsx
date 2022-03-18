@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Question, QuestionType } from "../../interfaces/question";
 import { Quiz } from "../../interfaces/quiz";
 import { Button, Form } from "react-bootstrap";
@@ -14,7 +14,7 @@ const BLANK_QUESTION: Question = {
     published: false
 };
 
-/*export function EditQuestions({
+export function EditQuestions({
     questions,
     setQuestions,
     quizDetails,

@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Quiz } from "../../interfaces/quiz";
 import { Button, Form } from "react-bootstrap";
 import { ScriptElementKindModifier } from "typescript";
@@ -74,7 +74,7 @@ function NewQuizB({
     return <Button onClick={() => setMode("new")}>+ Add Quiz</Button>;
 }
 
-/*export function QuizView({
+export function QuizView({
     setMode,
     quizzes,
     currQ,
