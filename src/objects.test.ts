@@ -1,4 +1,4 @@
-import { Question } from "./interfaces/question";
+/*import { Question } from "./interfaces/question";
 import {
     makeBlankQuestion,
     isCorrect,
@@ -291,3 +291,4 @@ What shape can you make with one line?
         });
     });
 });
+*/
