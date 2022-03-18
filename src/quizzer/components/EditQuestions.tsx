@@ -25,9 +25,18 @@ export function EditQuestions({
     quizDetails: Quiz,
     setQuizDetails: ( newQuizDetails: Quiz) => void;
 }): JSX.Element {
-    //functions
-}
-return (
+    function deleteQuestion(id: number) {
+        setQuestions(questions.filter((question: Question): boolean => question.id !== id));
+    }
+    function addQuestion(id: number) {
+        setQuestions([...questions, {...BLANK_QUESTION, id: id + 1}]);
+        setQuizDetails({
+            ...quizDetails,
+            maxQ: id + 1
+        });
+    }
     
+return (
+
 )
 }
