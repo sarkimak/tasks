@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 import { Question, QuestionType } from "../../interfaces/question";
 import { Quiz } from "../../interfaces/quiz";
 import { Button, Form } from "react-bootstrap";
@@ -40,4 +40,3 @@ export function EditQuestions({
         });
     }
 }
-*/
