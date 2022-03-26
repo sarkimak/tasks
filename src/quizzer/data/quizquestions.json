@@ -1,10 +1,7 @@
 [
     {
-        "id": 0,
         "title": "Sarah's Favorites Trivia",
-        "points": 100,
         "description": "Take a quiz and see how many of Sarah's favorite things you know!",
-        "maxQ": 4,
         "questions": [
             {
                 "id": 1,
@@ -49,11 +46,8 @@
         ]
     },
     {
-        "id": 1,
         "title": "Brain Quiz",
-        "points": 3000,
         "description": "Put your brain to the test with these riddles and quests!",
-        "maxQ": 3,
         "questions": [
             {
                 "id": 0,
