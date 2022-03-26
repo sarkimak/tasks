@@ -1,26 +1,26 @@
 import React from "react";
 import { Stack } from "react-bootstrap";
-import { Question } from "../../interfaces/question";
-import { QuestionView } from "./QuestionView";
+import { Quiz } from "../../interfaces/quiz";
+import { QuizView } from "./QuizView";
 
-export function QuestionList({
-    questions,
-    addPoints,
-    showUnpub
+export function QuizList({
+    quizzes,
+    editQuiz,
+    deleteQuiz
 }: {
-    questions: Question[];
-    addPoints: (addedP: number) => void;
-    showUnpub: boolean;
+    quizzes: Quiz[];
+    editQuiz: (id: number, newQuiz: Quiz) => void;
+    deleteQuiz: (id: number) => void;
 }): JSX.Element {
     return (
         <Stack gap={3}>
-            {questions.map((question: Question) => (
-                <div key={question.id} className="bg-light border m-2 p-2">
-                    <QuestionView
-                        question={question}
-                        addPoints={addPoints}
-                        showUnpub={showUnpub}
-                    ></QuestionView>
+            {quizzes.map((quiz: Quiz) => (
+                <div key={quiz.id} className="bg-light border m-2 p-2">
+                    <QuizView
+                        quiz={quiz}
+                        editQuiz={editQuiz}
+                        deleteQuiz={deleteQuiz}
+                    ></QuizView>
                 </div>
             ))}
         </Stack>
