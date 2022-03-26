@@ -17,12 +17,25 @@ export function Quizzer(): JSX.Element {
     const CloseAddModal = () => setShowAddModal(false);
     const SShowAddModal = () => setShowAddModal(true);
 
-    //function editQuiz
+    function editQuiz(id: number, newQuiz: Quiz) {
+        setQuizzes(
+            quizzes.map((quiz: Quiz): Quiz => (quiz.id === id ? newQuiz : quiz))
+        );
+    }
 
-    //function deleteQuiz
+    function deleteQuiz(id: number) {
+        setQuizzes(quizzes.filter((quiz: Quiz): boolean => quiz.id !== id));
+    }
 
-    //function addQuiz
-    
+    function addQuiz(newQuiz: Quiz) {
+        const exisitng = quizzes.find(
+            (quiz: Quiz): boolean => quiz.id === newQuiz.id
+        );
+        if (exisitng === undefined) {
+            setQuizzes([...quizzes, newQuiz]);
+        }
+    }
+
     return (
         <div>
             <div>

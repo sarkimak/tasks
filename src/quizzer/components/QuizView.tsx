@@ -5,16 +5,19 @@ import { Question } from "../../interfaces/question";
 import { QuestionList } from "./QuestionList";
 import { EditQuiz } from "./EditQuiz";
 
-function QuizList({
+export function QuizView({
     quiz,
     editQuiz,
     deleteQuiz
 
 }: {
-    quiz: Quiz[];
+    quiz,
+    editQuiz,
+    deleteQuiz
+}: {
+    quiz: Quiz,
     editQuiz: (id: number, newQuiz: Quiz) => void;
     deleteQuiz: (id: number) => void;
-
 }): JSX.Element {
     const [questions, setQ] = useState<Question[]>(quiz.questions);
     const [points, setP] = useState<number>(0);
@@ -39,14 +42,14 @@ function QuizList({
     }
 
     return editing ? (
-        <QuizEditor
+        <EditQuiz
             changeEditing={changeEditing}
             quiz={quiz}
             editQuiz={editQuiz}
             deleteQuiz={deleteQuiz}
             setQ={setQ}
             questions={questions}
-        ></QuizEditor>
+        ></EditQuiz>
     ) : (
             <Container>
                 <Row>
@@ -54,19 +57,28 @@ function QuizList({
                         <h3>{quiz.title}</h3>
                     </Col>
                 </Row>
+                <Row>
+                    <p>{quiz.description}</p>
+                    <p>Number of Questions: {quiz.questions.length}</p>
+                </Row>
+                <Row>
+                    <Button onClick={flipV}>Start/Finish Quiz</Button>
+                    <Button onClick={changeEditing}> Edit </Button>
+                </Row>
+                {visible && (
+                    <Row>
+                        <p>Total Points: {points}, Out of Possible: XXX</p>
+                        <Button onClick={flipShowUnpub}>
+                            Filter Quizzes by Published/Unpublished
+                        </Button>
+                        <QuestionList
+                            questions={questions}
+                            addPoints={addPoints}
+                            showUnpub={showUnpub}
+                        ></QuestionList>
+                    </Row>
+                )}
             </Container>
-    )
+        );
+    }
 
-function StartQuizB({
-    setMode,
-    currQ
-}: {
-    setMode: (newMode: string) => void;
-    currQ: Quiz;
-}): JSX.Element {
-    return (
-        <Button disabled={isNaN(currQ.id)} onClick={() => setMode("start")}>
-            Start Quiz
-        </Button>
-    );
-}

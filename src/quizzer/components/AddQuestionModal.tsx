@@ -9,7 +9,7 @@ export function AddQuestionModal({
 }: {
     show: boolean;
     handleClose: () => void;
-    addQuiz: (newQuestion: Question) => void;
+    addQuestion: (newQuestion: Question) => void;
 }) {
     const [id, setId] = useState<number>(3);
 
