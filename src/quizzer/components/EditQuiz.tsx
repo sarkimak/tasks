@@ -102,7 +102,7 @@ export function EditQuiz({
                     </div>
                     {/* Save and Cancel */}
                     <Button onClick={save} variant="success" className="me-4">
-                        Add a Question
+                        Save
                     </Button>
                     <Button onClick={cancel} variant="warning" className="me-5">
                         Cancel
