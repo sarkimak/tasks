@@ -19,6 +19,7 @@ export function AddQuizModal({
             title: "",
             description: "",
             questions: [],
+            points: 0,
             open: false
         });
         handleClose();

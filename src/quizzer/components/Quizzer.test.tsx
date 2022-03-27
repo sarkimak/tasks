@@ -23,7 +23,7 @@ describe("Quizzer Tests", () => {
         expect(screen.getByText(quizzes[1].title)).toBeInTheDocument();
         expect(screen.getByText(quizzes[1].description)).toBeInTheDocument();
         const numberOfQuestionText = screen.queryAllByText(
-            "Number of Questions: 3"
+            "Number of Questions: 4"
         );
         expect(numberOfQuestionText).toHaveLength(2);
     });

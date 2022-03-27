@@ -49,7 +49,7 @@
     {
         "title": "Brain Quiz",
         "description": "Put your brain to the test with these riddles and quests!",
-        "points": 1000,
+        "points": 3000,
         "questions": [
             {
                 "name": "Riddle",
