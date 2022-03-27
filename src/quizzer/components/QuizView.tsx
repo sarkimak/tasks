@@ -58,7 +58,7 @@ export function QuizView({
             </Row>
             <Row>
                 <Button onClick={flipV}>
-                    Start Quiz / Close and Clear Answers{" "}
+                    Start Quiz or Close and Clear Answers{" "}
                 </Button>
                 <Button onClick={changeEditing}> Edit Quiz</Button>
             </Row>
