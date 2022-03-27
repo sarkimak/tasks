@@ -7,29 +7,46 @@ type ChangeEvent = React.ChangeEvent<
 
 export function MultipleChoiceQuestion({
     options,
-    expectedAnswer
+    expectedAnswer,
+    addPoints,
+    points
 }: {
     options: string[];
     expectedAnswer: string;
+    addPoints: (addedP: number) => void;
+    points: number;
 }): JSX.Element {
-    const [selected, setSelected] = useState<string>(options[0]);
+    const [ans, setAns] = useState<string>(options[0]);
+    const [lastCorrect, setLastCorr] = useState<boolean>(false);
 
-    const changeMCQ = (e: ChangeEvent) => {
-        setSelected(e.target.value);
-    };
+    function updateAns(event: ChangeEvent) {
+        setAns(event.target.value);
+        if (event.target.value !== expectedAnswer) {
+            if (lastCorrect === true) {
+                addPoints(-points);
+                setLastCorr(false);
+            }
+        }
+        if (event.target.value === expectedAnswer) {
+            setLastCorr(true);
+            addPoints(points);
+        }
+    }
+
     return (
         <div>
-            <h3>Multiple Choice Question</h3>
-            <Form.Group controlId="choiceDropdown">
-                <Form.Select value={selected} onChange={changeMCQ}>
-                    {options.map((choice: string) => (
-                        <option key={choice} value={choice}>
-                            {choice}
+            <h6>Multiple Choice Question</h6>
+            <Form.Label> Choose an Answer:</Form.Label>
+            <Form.Select value={ans} onChange={updateAns}>
+                {options.map(
+                    (dropOption: string): JSX.Element => (
+                        <option key={dropOption} value={dropOption}>
+                            {dropOption}
                         </option>
-                    ))}
-                </Form.Select>
-            </Form.Group>
-            {selected === expectedAnswer ? "✔️" : "❌"}
+                    )
+                )}
+            </Form.Select>
+            {ans === expectedAnswer ? "✔️" : "❌"}
         </div>
     );
 }
