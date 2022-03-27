@@ -1,6 +1,6 @@
 import React from "react";
 import { Question } from "../../interfaces/question";
-import { ListGroup, Form, Container, Row, Col } from "react-bootstrap";
+import { ListGroup, Form, Container, Row, Col, Button } from "react-bootstrap";
 
 interface QuestionP {
     question: Question;
@@ -153,7 +153,26 @@ export function EditQuestionPub({
         />
     );
 }
-
+/*
+export function EditQuestionOrder(currentIdx: number, action: string) {
+    const reorderQuestions: Question[] = [...question];
+    if (action === "up") {
+        if (currentIdx > 0) {
+            const tmp: Question = reorderQuestions[currentIdx];
+            reorderQuestions[currentIdx] = reorderQuestions[currentIdx - 1];
+            reorderQuestions[currentIdx - 1] = tmp;
+            setQuestion(reorderQuestions);
+        }
+    } else {
+        if (currentIdx < question.length - 1) {
+            const tmp: Question = reorderQuestions[currentIdx];
+            reorderQuestions[currentIdx] = reorderQuestions[currentIdx + 1];
+            reorderQuestions[currentIdx + 1] = tmp;
+            setQuestion(reorderQuestions);
+        }
+    }
+}
+*/
 export function EditQuestions({
     questions,
     setQ
@@ -259,6 +278,23 @@ export function EditQuestions({
                                     ></EditQuestionPub>
                                 </Col>
                             </Row>
+                            {/*
+                            Reorder Questions
+                            <Button
+                                disabled={idx === 0}
+                                data-testid={`${question.id}-up-button`}
+                                onClick={() => EditQuestionOrder(idx, "up")}
+                            >
+                                Move Up
+                            </Button>
+                            <Button
+                                disabled={idx === questions.length - 1}
+                                data-testid={`${question.id}-down-button`}
+                                onClick={() => EditQuestionOrder(idx, "down")}
+                            >
+                                Move Down
+                            </Button>
+                            */}
                             {/* Delete Question */}
                             <Row>
                                 <Col>

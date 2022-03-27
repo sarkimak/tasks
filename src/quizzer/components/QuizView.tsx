@@ -57,7 +57,9 @@ export function QuizView({
                 <p>Number of Questions: {quiz.questions.length}</p>
             </Row>
             <Row>
-                <Button onClick={flipV}>Start Quiz</Button>
+                <Button onClick={flipV}>
+                    Start Quiz / Close and Clear Answers{" "}
+                </Button>
                 <Button onClick={changeEditing}> Edit Quiz</Button>
             </Row>
             {visible && (
