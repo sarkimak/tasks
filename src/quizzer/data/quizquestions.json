@@ -2,6 +2,7 @@
     {
         "title": "Sarah's Favorites Trivia",
         "description": "Take a quiz and see how many of Sarah's favorite things you know!",
+        "points": 100,
         "questions": [
             {
                 "name": "Gatsby",
@@ -48,6 +49,7 @@
     {
         "title": "Brain Quiz",
         "description": "Put your brain to the test with these riddles and quests!",
+        "points": 1000,
         "questions": [
             {
                 "name": "Riddle",

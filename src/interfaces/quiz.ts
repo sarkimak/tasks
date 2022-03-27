@@ -6,4 +6,5 @@ export interface Quiz {
     questions: Question[];
     open: boolean;
     id: number;
+    points: number;
 }

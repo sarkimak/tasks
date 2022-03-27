@@ -57,14 +57,16 @@ export function QuizView({
                 <p>Number of Questions: {quiz.questions.length}</p>
             </Row>
             <Row>
-                <Button onClick={flipV}>Start/Finish Quiz</Button>
-                <Button onClick={changeEditing}> Edit </Button>
+                <Button onClick={flipV}>Start Quiz</Button>
+                <Button onClick={changeEditing}> Edit Quiz</Button>
             </Row>
             {visible && (
                 <Row>
-                    <p>Total Points: {points}, Out of Possible: XXX</p>
+                    <p>
+                        Total Points: {points}, Out of Possible: {quiz.points}
+                    </p>
                     <Button onClick={flipShowUnpub}>
-                        Filter Quizzes by Published/Unpublished
+                        Filter Questions by Published/Unpublished
                     </Button>
                     <QuestionList
                         questions={questions}
