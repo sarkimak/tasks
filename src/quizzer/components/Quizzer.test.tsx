@@ -33,25 +33,25 @@ describe("Quizzer Tests", () => {
 
         startButton[1].click();
         expect(
-            screen.queryByText(quizzes[0].questions[1].name)
-        ).toBeInTheDocument();
-        expect(
-            screen.queryByText(quizzes[0].questions[2].name)
-        ).toBeInTheDocument();
-        expect(
-            screen.queryByText(quizzes[0].questions[3].name)
-        ).toBeInTheDocument();
-        expect(
-            screen.queryByText(quizzes[0].questions[4].name)
-        ).toBeInTheDocument();
-        expect(
-            screen.queryByText(quizzes[1].questions[0].name)
-        ).toBeInTheDocument();
-        expect(
             screen.queryByText(quizzes[1].questions[1].name)
         ).toBeInTheDocument();
         expect(
             screen.queryByText(quizzes[1].questions[2].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[1].questions[3].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[1].questions[4].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[2].questions[0].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[2].questions[1].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[2].questions[2].name)
         ).toBeInTheDocument();
     });
 
