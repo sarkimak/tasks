@@ -22,7 +22,7 @@ describe("Quizzer Tests", () => {
         expect(screen.getByText(quizzes[0].description)).toBeInTheDocument();
         expect(screen.getByText(quizzes[1].title)).toBeInTheDocument();
         expect(screen.getByText(quizzes[1].description)).toBeInTheDocument();
-        expect(screen.queryAllByText("Number of Questions: 3")).toHaveLength(2);
+        expect(screen.queryAllByText("Number of Questions: 3")).toHaveLength(1);
         expect(screen.queryAllByText("Number of Questions: 4")).toHaveLength(1);
     });
     //quizzes have questions
@@ -33,9 +33,6 @@ describe("Quizzer Tests", () => {
 
         startButton[1].click();
         expect(
-            screen.queryByText(quizzes[0].questions[0].name)
-        ).toBeInTheDocument();
-        expect(
             screen.queryByText(quizzes[0].questions[1].name)
         ).toBeInTheDocument();
         expect(
@@ -43,6 +40,9 @@ describe("Quizzer Tests", () => {
         ).toBeInTheDocument();
         expect(
             screen.queryByText(quizzes[0].questions[3].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(quizzes[0].questions[4].name)
         ).toBeInTheDocument();
         expect(
             screen.queryByText(quizzes[1].questions[0].name)
