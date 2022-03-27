@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { Quizzer } from "../Quizzer";
 import { Quiz } from "../../interfaces/quiz";
 import quest from ".././/data/quizquestions.json";
-import userEvent from "@testing-library/user-event";
 
 const quizzes = quest.map(
     (quiz): Quiz => ({
