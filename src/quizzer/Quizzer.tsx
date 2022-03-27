@@ -8,7 +8,8 @@ import { AddQuizModal } from "../quizzer/components/AddQuizModal";
 const QUIZZES = quest.map(
     (quiz): Quiz => ({
         ...quiz,
-        open: false
+        open: false,
+        id: 0
     })
 );
 export function Quizzer(): JSX.Element {
@@ -51,7 +52,7 @@ export function Quizzer(): JSX.Element {
                     className="m-4"
                     onClick={SShowAddModal}
                 >
-                    Add New Movie
+                    Add New Quiz
                 </Button>
                 <AddQuizModal
                     show={showAddModal}

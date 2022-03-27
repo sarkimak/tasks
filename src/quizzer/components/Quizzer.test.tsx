@@ -8,7 +8,8 @@ import userEvent from "@testing-library/user-event";
 const quizzes = quest.map(
     (quiz): Quiz => ({
         ...quiz,
-        open: false
+        open: false,
+        id: 0
     })
 );
 
@@ -26,6 +27,4 @@ describe("Quizzer Tests", () => {
         );
         expect(numberOfQuestionText).toHaveLength(2);
     });
-    test("Expand Button", () => {
-        const
-    })
+});
