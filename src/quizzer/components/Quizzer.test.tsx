@@ -25,6 +25,6 @@ describe("Quizzer Tests", () => {
         const numberOfQuestionText = screen.queryAllByText(
             "Number of Questions: 4"
         );
-        expect(numberOfQuestionText).toHaveLength(2);
+        expect(numberOfQuestionText).toHaveLength(1);
     });
 });
