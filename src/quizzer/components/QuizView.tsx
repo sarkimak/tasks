@@ -9,13 +9,8 @@ export function QuizView({
     quiz,
     editQuiz,
     deleteQuiz
-
 }: {
-    quiz,
-    editQuiz,
-    deleteQuiz
-}: {
-    quiz: Quiz,
+    quiz: Quiz;
     editQuiz: (id: number, newQuiz: Quiz) => void;
     deleteQuiz: (id: number) => void;
 }): JSX.Element {
@@ -51,34 +46,33 @@ export function QuizView({
             questions={questions}
         ></EditQuiz>
     ) : (
-            <Container>
+        <Container>
+            <Row>
+                <Col>
+                    <h3>{quiz.title}</h3>
+                </Col>
+            </Row>
+            <Row>
+                <p>{quiz.description}</p>
+                <p>Number of Questions: {quiz.questions.length}</p>
+            </Row>
+            <Row>
+                <Button onClick={flipV}>Start/Finish Quiz</Button>
+                <Button onClick={changeEditing}> Edit </Button>
+            </Row>
+            {visible && (
                 <Row>
-                    <Col>
-                        <h3>{quiz.title}</h3>
-                    </Col>
+                    <p>Total Points: {points}, Out of Possible: XXX</p>
+                    <Button onClick={flipShowUnpub}>
+                        Filter Quizzes by Published/Unpublished
+                    </Button>
+                    <QuestionList
+                        questions={questions}
+                        addPoints={addPoints}
+                        showUnpub={showUnpub}
+                    ></QuestionList>
                 </Row>
-                <Row>
-                    <p>{quiz.description}</p>
-                    <p>Number of Questions: {quiz.questions.length}</p>
-                </Row>
-                <Row>
-                    <Button onClick={flipV}>Start/Finish Quiz</Button>
-                    <Button onClick={changeEditing}> Edit </Button>
-                </Row>
-                {visible && (
-                    <Row>
-                        <p>Total Points: {points}, Out of Possible: XXX</p>
-                        <Button onClick={flipShowUnpub}>
-                            Filter Quizzes by Published/Unpublished
-                        </Button>
-                        <QuestionList
-                            questions={questions}
-                            addPoints={addPoints}
-                            showUnpub={showUnpub}
-                        ></QuestionList>
-                    </Row>
-                )}
-            </Container>
-        );
-    }
-
+            )}
+        </Container>
+    );
+}
