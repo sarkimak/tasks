@@ -1,43 +1,314 @@
 import React from "react";
-import { Question, QuestionType } from "../../interfaces/question";
-import { Quiz } from "../../interfaces/quiz";
-import { Button, Form } from "react-bootstrap";
+import { Question } from "../../interfaces/question";
+import { ListGroup, Form, Container, Row, Col } from "react-bootstrap";
 
-const BLANK_QUESTION: Question = {
-    id: 0,
-    name: "New Question",
-    body: "",
-    type: "short_answer_question" as QuestionType,
-    options: [],
-    expected: "",
-    points: 0,
-    published: false
-};
+interface QuestionP {
+    question: Question;
+    setQuestion: (id: number, newQuestion: Question) => void;
+}
 
-/*export function EditQuestions({
-    questions,
-    setQuestions,
-    quizDetails,
-    setQuizDetails
+export function EditQuestionName({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.name}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    name: event.target.value
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionDelete({
+    question,
+    setQ,
+    questions
 }: {
+    question: Question;
+    setQ: (questions: Question[]) => void;
     questions: Question[];
-    setQuestions: (newQuest: Question[]) => void;
-    quizDetails: Quiz;
-    setQuizDetails: (newQuizDetails: Quiz) => void;
 }): JSX.Element {
-    function deleteQuestion(id: number) {
-        setQuestions(
-            questions.filter(
-                (question: Question): boolean => question.id !== id
-            )
-        );
-    }
-    function addQuestion(id: number) {
-        setQuestions([...questions, { ...BLANK_QUESTION, id: id + 1 }]);
-        setQuizDetails({
-            ...quizDetails,
-            maxQ: id + 1
-        });
+    return (
+        <button
+            onClick={() =>
+                setQ(
+                    questions.filter(
+                        (questionF: Question): boolean =>
+                            questionF.id !== question.id
+                    )
+                )
+            }
+        >
+            Delete Question
+        </button>
+    );
+}
+
+export function EditQuestionBody({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.body}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    body: event.target.value
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionType({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.type}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    type: event.target.value
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionExpected({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.expected}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    expected: event.target.value
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionPoints({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.points}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    points: parseInt(event.target.value)
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionOptions({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Control
+            value={question.options.toString()}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    options: event.target.value.split(",")
+                })
+            }
+        />
+    );
+}
+
+export function EditQuestionPub({
+    question,
+    setQuestion
+}: QuestionP): JSX.Element {
+    return (
+        <Form.Check
+            type="switch"
+            id="is-pub-check"
+            label="Published?"
+            checked={question.published}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    published: event.target.checked
+                })
+            }
+        />
+    );
+}
+/*
+export function EditQuestionOrder(currentIdx: number, action: string) {
+    const reorderQuestions: Question[] = [...question];
+    if (action === "up") {
+        if (currentIdx > 0) {
+            const tmp: Question = reorderQuestions[currentIdx];
+            reorderQuestions[currentIdx] = reorderQuestions[currentIdx - 1];
+            reorderQuestions[currentIdx - 1] = tmp;
+            setQuestion(reorderQuestions);
+        }
+    } else {
+        if (currentIdx < question.length - 1) {
+            const tmp: Question = reorderQuestions[currentIdx];
+            reorderQuestions[currentIdx] = reorderQuestions[currentIdx + 1];
+            reorderQuestions[currentIdx + 1] = tmp;
+            setQuestion(reorderQuestions);
+        }
     }
 }
 */
+export function EditQuestions({
+    questions,
+    setQ
+}: {
+    questions: Question[];
+    setQ: (questions: Question[]) => void;
+}): JSX.Element {
+    function setQuestion(id: number, newQuest: Question) {
+        setQ(
+            questions.map((question: Question) =>
+                question.id === id ? newQuest : question
+            )
+        );
+    }
+    return (
+        <ListGroup as="ol" numbered>
+            {questions.map((question: Question) => (
+                <ListGroup.Item
+                    as="li"
+                    key={question.id}
+                    className="d-flex align-items-start"
+                >
+                    <div className="ms-2 me-auto">
+                        <Container>
+                            {/* Question Name */}
+                            <Row>
+                                <Col>
+                                    <p>Question Name</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionName
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionName>
+                                </Col>
+                            </Row>
+                            {/* Question Body */}
+                            <Row>
+                                <Col>
+                                    <p>Question Body</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionBody
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionBody>
+                                </Col>
+                            </Row>
+                            {/* Expected Question */}
+                            <Row>
+                                <Col>
+                                    <p>Expected Answer to Question</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionExpected
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionExpected>
+                                </Col>
+                            </Row>
+                            {/* Question Type */}
+                            <Row>
+                                <Col>
+                                    <p>Question Type</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionType
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionType>
+                                </Col>
+                            </Row>
+                            {/* Question Options */}
+                            <Row>
+                                <Col>
+                                    <p>Question Options</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionOptions
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionOptions>
+                                </Col>
+                            </Row>
+                            {/* Question Points */}
+                            <Row>
+                                <Col>
+                                    <p>Question Points</p>
+                                </Col>
+                                <Col>
+                                    <EditQuestionPoints
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionPoints>
+                                </Col>
+                            </Row>
+                            {/* Published Question */}
+                            <Row>
+                                <Col>
+                                    <EditQuestionPub
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></EditQuestionPub>
+                                </Col>
+                            </Row>
+                            {/*
+                            Reorder Questions
+                            <Button
+                                disabled={idx === 0}
+                                data-testid={`${question.id}-up-button`}
+                                onClick={() => EditQuestionOrder(idx, "up")}
+                            >
+                                Move Up
+                            </Button>
+                            <Button
+                                disabled={idx === questions.length - 1}
+                                data-testid={`${question.id}-down-button`}
+                                onClick={() => EditQuestionOrder(idx, "down")}
+                            >
+                                Move Down
+                            </Button>
+                            */}
+                            {/* Delete Question */}
+                            <Row>
+                                <Col>
+                                    <EditQuestionDelete
+                                        question={question}
+                                        setQ={setQ}
+                                        questions={questions}
+                                    ></EditQuestionDelete>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </div>
+                </ListGroup.Item>
+            ))}
+        </ListGroup>
+    );
+}

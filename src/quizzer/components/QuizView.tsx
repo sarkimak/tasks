@@ -1,109 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import { Quiz } from "../../interfaces/quiz";
-import { Button, Form } from "react-bootstrap";
-import { ScriptElementKindModifier } from "typescript";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Question } from "../../interfaces/question";
+import { QuestionList } from "./QuestionList";
+import { EditQuiz } from "./EditQuiz";
 
-function QuizList({
-    quizzes,
-    currQ,
-    setCurrQ
+export function QuizView({
+    quiz,
+    editQuiz,
+    deleteQuiz
 }: {
-    quizzes: Quiz[];
-    currQ: Quiz;
-    setCurrQ: (newQuiz: Quiz) => void;
+    quiz: Quiz;
+    editQuiz: (id: number, newQuiz: Quiz) => void;
+    deleteQuiz: (id: number) => void;
 }): JSX.Element {
-    function changeCurrQ(event: React.ChangeEvent<HTMLSelectElement>) {
-        const id = parseInt(event.target.value);
-        console.log(id);
-        console.log(quizzes[id]);
-        setCurrQ(quizzes[id]);
+    const [questions, setQ] = useState<Question[]>(quiz.questions);
+    const [points, setP] = useState<number>(0);
+    const [visible, setV] = useState<boolean>(false);
+    const [editing, setE] = useState<boolean>(false);
+    const [showUnpub, setShowUnpub] = useState<boolean>(true);
+
+    function flipShowUnpub(): void {
+        setShowUnpub(!showUnpub);
     }
 
-    return (
-        <div>
-            <Form.Group controlId="quizList">
-                <Form.Select value={currQ.id} onChange={changeCurrQ}>
-                    {quizzes.map(
-                        (q: Quiz): JSX.Element => (
-                            <option key={q.id} value={q.id}>
-                                {q.title}
-                            </option>
-                        )
-                    )}
-                </Form.Select>
-            </Form.Group>
-            <p>{currQ.points}</p>
-            <p>{currQ.description}</p>
-        </div>
+    function flipV(): void {
+        setV(!visible);
+    }
+
+    function addPoints(addedP: number) {
+        setP(points + addedP);
+    }
+
+    function changeEditing() {
+        setE(!editing);
+    }
+
+    return editing ? (
+        <EditQuiz
+            changeEditing={changeEditing}
+            quiz={quiz}
+            editQuiz={editQuiz}
+            deleteQuiz={deleteQuiz}
+            setQ={setQ}
+            questions={questions}
+        ></EditQuiz>
+    ) : (
+        <Container>
+            <Row>
+                <Col>
+                    <h3>{quiz.title}</h3>
+                </Col>
+            </Row>
+            <Row>
+                <p>{quiz.description}</p>
+                <p>Number of Questions: {quiz.questions.length}</p>
+            </Row>
+            <Row>
+                <Button onClick={flipV}>
+                    Start Quiz or Close and Clear Answers{" "}
+                </Button>
+                <Button onClick={changeEditing}> Edit Quiz</Button>
+            </Row>
+            {visible && (
+                <Row>
+                    <p>
+                        Total Points: {points}, Out of Possible: {quiz.points}
+                    </p>
+                    <Button onClick={flipShowUnpub}>
+                        Filter Questions by Published/Unpublished
+                    </Button>
+                    <QuestionList
+                        questions={questions}
+                        addPoints={addPoints}
+                        showUnpub={showUnpub}
+                    ></QuestionList>
+                </Row>
+            )}
+        </Container>
     );
 }
-
-function StartQuizB({
-    setMode,
-    currQ
-}: {
-    setMode: (newMode: string) => void;
-    currQ: Quiz;
-}): JSX.Element {
-    return (
-        <Button disabled={isNaN(currQ.id)} onClick={() => setMode("start")}>
-            Start Quiz
-        </Button>
-    );
-}
-
-function EdittQuizB({
-    setMode,
-    currQ
-}: {
-    setMode: (newMode: string) => void;
-    currQ: Quiz;
-}): JSX.Element {
-    return (
-        <Button disabled={isNaN(currQ.id)} onClick={() => setMode("edit")}>
-            Edit Quiz
-        </Button>
-    );
-}
-
-function NewQuizB({
-    setMode
-}: {
-    setMode: (newMode: string) => void;
-}): JSX.Element {
-    return <Button onClick={() => setMode("new")}>+ Add Quiz</Button>;
-}
-
-/*export function QuizView({
-    setMode,
-    quizzes,
-    currQ,
-    setCurrQ
-}: {
-    setMode: (newMode: string) => void;
-    quizzes: Quiz[];
-    currQ: Quiz;
-    setCurrQ: (newQuiz: Quiz) => void;
-}): JSX.Element {
-    return (
-        <div>
-            <h6> Choose A Quiz! </h6>
-            <QuizList
-                quizzes={quizzes}
-                currQ={currQ}
-                setCurrQ={setCurrQ} 
-            />
-            <div>
-                <StartQuizB currQ={currQ} setMode={setMode} />
-                {"   "}
-                <EdittQuizB currQ={currQ} setMode={setMode} />
-            </div>
-            <br></br>
-            <p>{"Add Quiz"}</p>
-            </div>
-                <NewQuizB setMode={setMode} />
-            </div>
-        </div>
-    );
-}
-*/
