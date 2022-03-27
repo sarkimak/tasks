@@ -1,6 +1,6 @@
 import React from "react";
 import { Question } from "../../interfaces/question";
-import { ListGroup, Form, Container, Row, Col, Button } from "react-bootstrap";
+import { ListGroup, Form, Container, Row, Col } from "react-bootstrap";
 
 interface QuestionP {
     question: Question;
