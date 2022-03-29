@@ -40,7 +40,7 @@ describe("Quizzer Tests", () => {
             name: /Start Quiz or Close and Clear Answer/i
         })[0];
         startButton.click();
-        const numPoints = screen.queryAllByAltText(/Total Points: 0/);
+        const numPoints = screen.queryAllByAltText(/Total Points/);
         expect(numPoints).toHaveLength(1);
     });
     //clear answer
