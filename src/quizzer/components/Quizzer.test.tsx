@@ -35,6 +35,14 @@ describe("Quizzer Tests", () => {
     //there are at least two types, SA and MC (tested in indv. MC and SA files from past)
     //check ans function
     //sum points of questions / quiz
+    test("Show Sum of Points When Quiz is in Progress", () => {
+        const startButton = screen.getAllByRole("button", {
+            name: /Start Quiz or Close and Clear Answer/i
+        })[0];
+        startButton.click();
+        const numPoints = screen.queryAllByAltText(/Total Points: 0/);
+        expect(numPoints).toHaveLength(1);
+    });
     //clear answer
     //publish questions
     //filter questions by published or not
