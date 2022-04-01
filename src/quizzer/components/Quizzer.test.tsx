@@ -81,10 +81,9 @@ describe("Quizzer Tests", () => {
         const cancelButton = screen.getByRole("button", { name: /Cancel/i });
         expect(cancelButton).toBeInTheDocument();
     });
-    //add questions
     //reorder questions, attempted and commented out code but cannot get it
-    //add a new quiz
-    test("Edit Quiz Allows Quizzes to be Added and Saved", () => {
+    //add a new quiz and questions
+    test("Edit Quiz Allows Quizzes and Questions to be Added and Saved", () => {
         const editButton = screen.getAllByRole("button", {
             name: /Edit Quiz/i
         })[0];
@@ -100,5 +99,7 @@ describe("Quizzer Tests", () => {
         editButton.click();
         const deleteButton = screen.getByRole("button", { name: "Delete" });
         expect(deleteButton).toBeInTheDocument();
+        deleteButton.click();
+        expect(screen.queryByText("Brain Quiz")).not.toBeInTheDocument();
     });
 });
