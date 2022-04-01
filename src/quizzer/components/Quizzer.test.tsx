@@ -56,7 +56,7 @@ describe("Quizzer Tests", () => {
         ).toBeInTheDocument();
     });
 
-    //there are at least two types, SA and MC (tested in indv. MC and SA files from past)
+    //there are at least two types, SA and MC (tested in indv. MC and SA files)
     //check ans function
     const trivia = screen.queryAllByAltText("Miracle");
     trivia[1].click();

@@ -16,7 +16,10 @@ function App(): JSX.Element {
                 <li>Application is Sketched: Y </li>
                 <li>Quizzes are Visible: Y Tested: Y</li>
                 <li>Quizzes have Questions: Y Tested: Y</li>
-                <li>Short Answer and Multiple Choice: Y Tested: N</li>
+                <li>
+                    Short Answer and Multiple Choice: Y Tested: Yes in indv
+                    files
+                </li>
                 <li>Check Correctness: Y Tested: N</li>
                 <li>Sum Points: Y Tested: Y</li>
                 <li>Clear Answers: Y Tested: N</li>
