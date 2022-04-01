@@ -72,7 +72,7 @@ describe("Quizzer Tests", () => {
     test("Can Publish and UnPublish Questions", () => {
         const switchButton = screen.getByRole("checkbox");
         switchButton.click();
-        expect(screen.getByRole("checkbox")).toHaveLength(2);
+        expect(screen.getAllByRole("checkbox")).toHaveLength(2);
     });
     //filter questions by published or not
     //edit questions
