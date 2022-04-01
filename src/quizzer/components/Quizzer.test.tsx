@@ -69,15 +69,14 @@ describe("Quizzer Tests", () => {
     });
     //clear answer
     //publish questions
-    test("Can Publish and UnPublish Questions", () => {
-        const switchButton = screen.getByRole("checkbox");
-        switchButton.click();
-        const filterButton = screen.getAllByRole("button", {
-            name: /Filter Questions by Published or Unpublished /i
-        })[0];
-        switchButton.click();
-        filterButton.click();
-        expect(screen.queryByText("Bagels")).not.toBeInTheDocument();
+    test("Test that the show publish questions checkbox works", () => {
+        const checkbox = screen.getByTestId("flipShowUnPub");
+
+        checkbox.click();
+        expect(screen.queryByText("Bagel")).not.toBeInTheDocument();
+
+        checkbox.click();
+        expect(screen.getByText("Bagel")).toBeInTheDocument();
     });
     //filter questions by published or not
     //edit questions
