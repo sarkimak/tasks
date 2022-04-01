@@ -70,12 +70,12 @@ describe("Quizzer Tests", () => {
     //clear answer
     //publish questions
     test("Test that the show publish questions checkbox works", () => {
-        const checkbox = screen.getByTestId("flipShowUnPub");
-
-        checkbox.click();
+        const filterButton = screen.getAllByRole("button", {
+            name: /Filter Questions by Published or Unpublished/i
+        })[0];
+        filterButton.click();
         expect(screen.queryByText("Bagel")).not.toBeInTheDocument();
-
-        checkbox.click();
+        filterButton.click();
         expect(screen.getByText("Bagel")).toBeInTheDocument();
     });
     //filter questions by published or not
