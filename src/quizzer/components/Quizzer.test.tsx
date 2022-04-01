@@ -58,7 +58,7 @@ describe("Quizzer Tests", () => {
 
     //there are at least two types, SA and MC (tested in indv. MC and SA files from past)
     //check ans function
-    const trivia = screen.getAllByTitle("Miracle");
+    const trivia = screen.getAllByText("Miracle");
     trivia[1].click();
     expect(screen.queryAllByAltText(/❌/i)).toHaveLength(1);
     expect(screen.queryAllByAltText(/✔️/i)).toHaveLength(0);
