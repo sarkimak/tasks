@@ -77,7 +77,7 @@ describe("Quizzer Tests", () => {
         })[0];
         editButton.click();
         const inputText = screen.getAllByRole("textbox");
-        expect(inputText).toHaveLength(5 * quizzes[0].questions.length + 4);
+        expect(inputText).toHaveLength(5 * quizzes[0].questions.length + 6);
     });
     //add questions
     //reorder questions, attempted and commented out code but cannot get it
