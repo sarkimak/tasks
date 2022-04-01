@@ -71,6 +71,14 @@ describe("Quizzer Tests", () => {
     //publish questions
     //filter questions by published or not
     //edit questions
+    test("Edit Quiz Allows Quizzes and Questions to be Edited", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Quiz/i
+        })[0];
+        editButton.click();
+        const inputText = screen.getAllByRole("textbox");
+        expect(inputText).toHaveLength(5 * quizzes[0].questions.length + 2);
+    });
     //add questions
     //reorder questions, attempted and commented out code but cannot get it
     //add a new quiz
