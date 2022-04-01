@@ -98,7 +98,7 @@ describe("Quizzer Tests", () => {
             name: /Edit Quiz/i
         })[0];
         editButton.click();
-        const deleteButton = screen.getByRole("button", { name: /Delete/i });
+        const deleteButton = screen.getByRole("button", { name: "Delete" });
         expect(deleteButton).toBeInTheDocument();
     });
 });
