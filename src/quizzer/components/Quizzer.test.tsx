@@ -78,9 +78,27 @@ describe("Quizzer Tests", () => {
         editButton.click();
         const inputText = screen.getAllByRole("textbox");
         expect(inputText).toHaveLength(5 * quizzes[0].questions.length + 6);
+        const cancelButton = screen.getByRole("button", { name: /Cancel/i });
+        expect(cancelButton).toBeInTheDocument();
     });
     //add questions
     //reorder questions, attempted and commented out code but cannot get it
     //add a new quiz
+    test("Edit Quiz Allows Quizzes to be Added and Saved", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Quiz/i
+        })[0];
+        editButton.click();
+        const saveButton = screen.getByRole("button", { name: /Save/i });
+        expect(saveButton).toBeInTheDocument();
+    });
     //delete a quiz
+    test("Edit Quiz Allows Quizzes to be Deleted", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Quiz/i
+        })[0];
+        editButton.click();
+        const deleteButton = screen.getByRole("button", { name: /Delete/i });
+        expect(deleteButton).toBeInTheDocument();
+    });
 });
