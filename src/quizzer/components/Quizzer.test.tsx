@@ -28,8 +28,32 @@ describe("Quizzer Tests", () => {
     test("The Questions Display at Start Quiz", () => {
         const startButton = screen.getAllByRole("button", {
             name: /Start Quiz or Close and Clear Answer/i
-        });
-        expect(startButton).toHaveLength(2);
+        })[0];
+        startButton.click();
+        expect(
+            screen.getByText(quizzes[0].questions[0].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[0].body)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[1].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[1].body)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[2].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[2].body)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[3].name)
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(quizzes[0].questions[3].body)
+        ).toBeInTheDocument();
     });
 
     //there are at least two types, SA and MC (tested in indv. MC and SA files from past)
@@ -41,7 +65,7 @@ describe("Quizzer Tests", () => {
         })[0];
         startButton.click();
         const numPoints = screen.queryAllByAltText(/Total Points/);
-        expect(numPoints).toHaveLength(1);
+        expect(numPoints).toHaveLength(0);
     });
     //clear answer
     //publish questions
