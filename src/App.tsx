@@ -14,20 +14,26 @@ function App(): JSX.Element {
             <hr></hr>List of Completed Requirements:<hr></hr>
             <ul>
                 <li>Application is Sketched: Y </li>
-                <li>Quizzes are Visible: Y Tested: N</li>
-                <li>Quizzes have Questions: Y Tested: N</li>
-                <li>Short Answer and Multiple Choice: Y Tested: N</li>
+                <li>Quizzes are Visible: Y Tested: Y</li>
+                <li>Quizzes have Questions: Y Tested: Y</li>
+                <li>
+                    Short Answer and Multiple Choice: Y Tested: Yes in indv
+                    files
+                </li>
                 <li>Check Correctness: Y Tested: N</li>
-                <li>Sum Points: Y Tested: N</li>
+                <li>Sum Points: Y Tested: Y</li>
                 <li>Clear Answers: Y Tested: N</li>
-                <li>Publish Questions: Y Tested: N</li>
-                <li>Filter Questions: Y Tested: N</li>
-                <li>Edit Questions: Y Tested: N</li>
-                <li>Add Questions: Y Tested: N</li>
-                <li>Delete Questions: Y Tested: N</li>
-                <li>Reorder Questions: Y Tested: N</li>
-                <li>Add Quizzes: Y Tested: N</li>
-                <li>Delete Quizzes: Y Tested: N</li>
+                <li>Publish Questions: Y Tested: Test written, but fails?</li>
+                <li>Filter Questions: Y Tested: Test written, but fails?</li>
+                <li>Edit Questions: Y Tested: Y</li>
+                <li>Add Questions: Y Tested: Y</li>
+                <li>Delete Questions: Y Tested: Y</li>
+                <li>
+                    Reorder Questions: commented out code, cannot get it to work
+                    Tested: N
+                </li>
+                <li>Add Quizzes: Y Tested: Y</li>
+                <li>Delete Quizzes: Y Tested: Y</li>
             </ul>
         </div>
     );
