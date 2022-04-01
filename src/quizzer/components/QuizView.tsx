@@ -68,7 +68,7 @@ export function QuizView({
                         Total Points: {points}, Out of Possible: {quiz.points}
                     </p>
                     <Button onClick={flipShowUnpub}>
-                        Filter Questions by Published/Unpublished
+                        Filter Questions by Published or Unpublished
                     </Button>
                     <QuestionList
                         questions={questions}

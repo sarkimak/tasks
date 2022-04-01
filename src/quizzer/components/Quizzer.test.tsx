@@ -70,9 +70,14 @@ describe("Quizzer Tests", () => {
     //clear answer
     //publish questions
     test("Can Publish and UnPublish Questions", () => {
-        const switchButton = screen.getAllByRole("checkbox");
+        const switchButton = screen.getByRole("checkbox");
         switchButton.click();
-        expect(screen.getAllByRole("checkbox")).toHaveLength(2);
+        const filterButton = screen.getAllByRole("button", {
+            name: /Filter Questions by Published or Unpublished /i
+        })[0];
+        switchButton.click();
+        filterButton.click();
+        expect(screen.queryByText("Bagels")).not.toBeInTheDocument();
     });
     //filter questions by published or not
     //edit questions
