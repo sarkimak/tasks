@@ -70,7 +70,7 @@ describe("Quizzer Tests", () => {
     //clear answer
     //publish questions
     test("Can Publish and UnPublish Questions", () => {
-        const switchButton = screen.getByRole("checkbox");
+        const switchButton = screen.getAllByRole("checkbox");
         switchButton.click();
         expect(screen.getAllByRole("checkbox")).toHaveLength(2);
     });
