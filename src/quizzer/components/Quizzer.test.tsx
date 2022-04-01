@@ -69,6 +69,11 @@ describe("Quizzer Tests", () => {
     });
     //clear answer
     //publish questions
+    test("Can Publish and UnPublish Questions", () => {
+        const switchButton = screen.getByRole("checkbox");
+        switchButton.click();
+        expect(screen.getByRole("checkbox")).toHaveLength(2);
+    });
     //filter questions by published or not
     //edit questions
     test("Edit Quiz Allows Quizzes and Questions to be Edited", () => {
