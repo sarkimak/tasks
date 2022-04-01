@@ -58,6 +58,19 @@ describe("Quizzer Tests", () => {
 
     //there are at least two types, SA and MC (tested in indv. MC and SA files from past)
     //check ans function
+    const trivia = screen.getAllByRole("Miracle");
+    trivia[1].click();
+    expect(screen.queryAllByAltText(/❌/i)).toHaveLength(1);
+    expect(screen.queryAllByAltText(/✔️/i)).toHaveLength(0);
+    expect(screen.getByText("Total Points: 0")).toBeInTheDocument();
+    trivia[2].click();
+    expect(screen.queryAllByAltText(/❌/i)).toHaveLength(0);
+    expect(screen.queryAllByAltText(/✔️/i)).toHaveLength(1);
+    expect(screen.getByText("Total Points: 25")).toBeInTheDocument();
+    trivia[3].click();
+    expect(screen.queryAllByAltText(/❌/i)).toHaveLength(1);
+    expect(screen.queryAllByAltText(/✔️/i)).toHaveLength(0);
+    expect(screen.getByText("Total Points: 0")).toBeInTheDocument();
     //sum points of questions / quiz
     test("Show Sum of Points When Quiz is in Progress", () => {
         const startButton = screen.getAllByRole("button", {
