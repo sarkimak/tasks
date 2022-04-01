@@ -68,6 +68,12 @@ describe("Quizzer Tests", () => {
         expect(numPoints).toHaveLength(0);
     });
     //clear answer
+    const startButton = screen.getAllByRole("button", {
+        name: /Start Quiz or Close and Clear Answer/i
+    })[0];
+    startButton.click();
+    const numPoints = screen.queryAllByAltText(/Total Points: 0/);
+    expect(numPoints).toHaveLength(0);
     //publish and filter questions by pub status
     test("Filter Questions and Publish / Unpublish", () => {
         const filterButton = screen.getAllByRole("button", {
